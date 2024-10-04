@@ -1,8 +1,8 @@
-# Ethiopian Tourism App
+# Ethiopian Tourism Web
 
 ## Project Overview
 
-The **Ethiopian Tourism App** is a modern web application designed to promote tourism in Ethiopia. It offers users a seamless experience to explore various tourist destinations, cultural sites, and travel-related information about Ethiopia.
+The **Ethiopian Tourism ** is a modern web application designed to promote tourism in Ethiopia. It offers users a seamless experience to explore various tourist destinations, cultural sites, and travel-related information about Ethiopia.
 
 ## Project Details
 
