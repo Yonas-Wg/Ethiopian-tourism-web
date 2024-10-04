@@ -1,4 +1,4 @@
-# Ethiopian Tourism Web
+# Ethiopian Tourism Website
 
 ## Project Overview
 
