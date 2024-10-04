@@ -1,6 +1,24 @@
-# Getting Started with Create React App
+# Ethiopian Tourism App
+
+## Project Overview
+
+The **Ethiopian Tourism App** is a modern web application designed to promote tourism in Ethiopia. It offers users a seamless experience to explore various tourist destinations, cultural sites, and travel-related information about Ethiopia.
+
+## Project Details
+
+- **Version**: 0.1.1
+- **Private**: Yes
+
+## Key Features
+
+- **Dynamic Routing**: Smooth navigation between different pages using React Router.
+- **Responsive Design**: Fully responsive layout for optimal viewing on all devices.
+- **Material-UI Integration**: Modern UI components for enhanced usability and aesthetics.
+- **Community Engagement**: Easy access to social media links to connect with users.
+
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
 
 ## Available Scripts
 
