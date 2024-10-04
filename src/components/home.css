@@ -1,0 +1,55 @@
+/* home.css */
+
+body {
+  
+    font-family: 'Roboto', sans-serif; 
+    margin: 0;
+    padding: 0;
+}
+
+.card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.3s ease;
+    border-radius: 8px; 
+    overflow: hidden; 
+}
+
+.card:hover {
+    transform: scale(1.1); 
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3); 
+    opacity: 0.9; 
+    cursor: pointer; 
+}
+
+.footer {
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+    width: 100%;
+    padding: 20px;
+    background-color: rgba(54, 93, 147, 0.9);
+    color: white;
+    text-align: center;
+    position: relative;
+    bottom: 0;
+}
+
+.footer:hover {
+    background-color: rgba(54, 93, 147, 1);
+    transform: translateY(-2px); 
+}
+
+.footer a {
+    color: white;
+    text-decoration: none;
+    margin: 0 10px;
+    transition: color 0.3s ease; 
+}
+
+.footer a:hover {
+    color: rgba(255, 255, 255, 0.7); 
+    text-decoration: underline; 
+}
+
+@media (max-width: 600px) {
+    .footer {
+        font-size: 14px;
+    }
+}
