@@ -16,7 +16,7 @@ const teamMembers = [
     {
         name: 'Eva Smith',
         role: 'Tour Guide',
-        description: 'Jane is an expert in Ethiopian history and culture, dedicated to providing insightful and unforgettable journeys through the country’s treasures.',
+        description: 'Eva is an expert in Ethiopian history and culture, dedicated to providing insightful and unforgettable journeys through the country’s treasures.',
         image: 'images/girl1.png', 
     },
     {
@@ -205,49 +205,52 @@ const About = () => {
         </Typography>
             </Container>
 
-            <footer className="footer" style={{  padding: '20px' }}>
+            <footer className="footer" style={{ padding: '20px' }}>
     <Container maxWidth="lg">
-        <Grid container justifyContent="space-between" alignItems="center">
-            <Grid item>
-                <Typography variant="body1" color="white">
-                    &copy; 2024 Explore Ethiopia. All rights reserved.
-                </Typography>
+        <Grid container direction="column" spacing={2}>
+            <Grid item container justifyContent="space-between" alignItems="center">
+                <Grid item>
+                    <Typography variant="body1" color="white">
+                        &copy; 2024 Explore Ethiopia. All rights reserved.
+                    </Typography>
+                </Grid>
+                <Grid item>
+                    <Typography variant="body2" style={{ margin: '10px 0' }}>
+                        <Link to="/" style={{ marginRight: '15px', color: 'white' }}>Home</Link>
+                        <Link to="/about" style={{ marginRight: '15px', color: 'white' }}>About Us</Link>
+                        <Link to="/contact" style={{ marginRight: '15px', color: 'white' }}>Contact Us</Link>
+                        <Link to="/destinations" style={{ color: 'white' }}>Destinations</Link>
+                    </Typography>
+                </Grid>
             </Grid>
-            <Grid item>
-                <Typography variant="body2" style={{ margin: '10px 0' }}>
-                    <Link to="/" style={{ marginRight: '15px', color: 'white' }}>Home</Link>
-                    <Link to="/about" style={{ marginRight: '15px', color: 'white' }}>About Us</Link>
-                    <Link to="/contact" style={{ marginRight: '15px', color: 'white' }}>Contact Us</Link>
-                    <Link to="/destinations" style={{ color: 'white' }}>Destinations</Link>
-                </Typography>
-            </Grid>
-        </Grid>
 
-        <Grid container justifyContent="space-between" alignItems="center" style={{ marginTop: '10px' }}>
-            <Grid item>
-                <Typography variant="body2" color="white" style={{ margin: '10px 0' }}>
-                    Follow us on:
-                </Typography>
-                <Box>
-                    <Link to="#" style={{ marginRight: '15px', color: 'white' }}>
-                        <Facebook fontSize="small" />
-                    </Link>
-                    <Link to="#" style={{ marginRight: '15px', color: 'white' }}>
-                        <Twitter fontSize="small" />
-                    </Link>
-                    <Link to="#" style={{ color: 'white' }}>
-                        <Instagram fontSize="small" />
-                    </Link>
-                </Box>
-            </Grid>
-            <Grid item>
-                <Typography variant="body2" color="white" style={{ marginTop: '10px', textAlign: 'center' }}>
-                    Discover the beauty, culture, and adventure of Ethiopia with us!
-                </Typography>
+            <Grid item container justifyContent="space-between" alignItems="center" style={{ marginTop: '10px' }}>
+                <Grid item xs={12} sm="auto">
+                    <Typography variant="body2" color="white" style={{ margin: '10px 0' }}>
+                        Follow us on:
+                    </Typography>
+                    <Box display="flex">
+                        <Link to="#" style={{ marginRight: '15px', color: 'white' }}>
+                            <Facebook fontSize="small" />
+                        </Link>
+                        <Link to="#" style={{ marginRight: '15px', color: 'white' }}>
+                            <Twitter fontSize="small" />
+                        </Link>
+                        <Link to="#" style={{ color: 'white' }}>
+                            <Instagram fontSize="small" />
+                        </Link>
+                    </Box>
+                </Grid>
+                <Grid item xs={12} sm="auto">
+                    <Typography variant="body2" color="white" style={{ textAlign: 'center', marginTop: '10px' }}>
+                        Discover the beauty, culture, and adventure of Ethiopia with us!
+                    </Typography>
+                </Grid>
             </Grid>
         </Grid>
     </Container>
-            </footer>
+</footer>
+
 
         </>
     );

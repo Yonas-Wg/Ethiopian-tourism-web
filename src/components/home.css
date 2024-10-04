@@ -1,7 +1,6 @@
 /* home.css */
 
 body {
-  
     font-family: 'Roboto', sans-serif; 
     margin: 0;
     padding: 0;
@@ -11,6 +10,9 @@ body {
     transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.3s ease;
     border-radius: 8px; 
     overflow: hidden; 
+    width: 100%; 
+    max-width: 300px; 
+    margin: 10px auto; 
 }
 
 .card:hover {
@@ -48,8 +50,36 @@ body {
     text-decoration: underline; 
 }
 
+/* Responsive adjustments */
 @media (max-width: 600px) {
     .footer {
         font-size: 14px;
+        padding: 10px; 
+        width: 90%;
+    }
+
+    .card {
+        max-width: 100%; 
+    }
+}
+
+@media (min-width: 601px) and (max-width: 960px) {
+    .footer {
+        font-size: 16px; 
+        padding: 15px;
+    }
+
+    .card {
+        max-width: 90%; 
+    }
+}
+
+@media (min-width: 961px) {
+    .footer {
+        font-size: 18px; 
+    }
+
+    .card {
+        max-width: 300px; 
     }
 }
