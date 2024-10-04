@@ -63,9 +63,21 @@ const Home = () => {
             {/* AppBar */}
             <AppBar position="static" style={{ backgroundColor: 'rgba(54, 93, 147, 0.9)' }}>
                 <Toolbar>
-                    <Typography variant="h6" style={{ flexGrow: 1, cursor: 'pointer' }} onClick={handleNavigate}>
-                        Explore Ethiopia
-                    </Typography>
+                <Typography 
+    variant="h6" 
+    sx={{ 
+        flexGrow: 1, 
+        cursor: 'pointer',
+        transition: 'color 0.3s', 
+        '&:hover': {
+            color: 'lightgrey',
+        }
+    }} 
+    onClick={handleNavigate}
+>
+    Explore Ethiopia
+</Typography>
+
                     <NavLink 
             to="/" 
             style={({ isActive }) => ({
@@ -102,7 +114,7 @@ const Home = () => {
                     Discover breathtaking landscapes, rich culture, and unforgettable experiences!
                 </Typography>
                 <Link to="/about">
-                    <Button variant="contained" color="primary" size="large" style={{ marginBottom: '20px' }}>
+                    <Button variant="contained"  size="large" style={{ marginBottom: '20px', backgroundColor: 'rgba(54, 93, 147, 0.9)',  }}>
                         Learn More
                     </Button>
                 </Link>
@@ -193,7 +205,7 @@ const Home = () => {
                 </Box>
             </Grid>
             <Grid item>
-                <Typography variant="body2" color="white" style={{ marginTop: '10px', textAlign: 'right' }}>
+                <Typography variant="body2" color="white" style={{ marginTop: '10px', textAlign: 'center' }}>
                     Discover the beauty, culture, and adventure of Ethiopia with us!
                 </Typography>
             </Grid>

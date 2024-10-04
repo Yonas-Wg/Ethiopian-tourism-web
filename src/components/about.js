@@ -46,7 +46,7 @@ const About = () => {
         cursor: 'pointer',
         transition: 'color 0.3s', 
         '&:hover': {
-            color: 'grey',
+            color: 'lightgrey',
         }
     }} 
     onClick={handleNavigate}
@@ -241,7 +241,7 @@ const About = () => {
                 </Box>
             </Grid>
             <Grid item>
-                <Typography variant="body2" color="white" style={{ marginTop: '10px', textAlign: 'right' }}>
+                <Typography variant="body2" color="white" style={{ marginTop: '10px', textAlign: 'center' }}>
                     Discover the beauty, culture, and adventure of Ethiopia with us!
                 </Typography>
             </Grid>
