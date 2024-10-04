@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { AppBar, Toolbar, Typography, Button, Container, Box, Grid, Card, CardMedia, CardContent } from '@mui/material';
-import './home.css';
-import { Facebook, Twitter, Instagram } from '@mui/icons-material'; 
+import { AppBar, Toolbar, Typography, Button, Container, Box, Grid, Card, CardMedia, CardContent, Dialog, DialogContent, IconButton } from '@mui/material';
+import { Facebook, Twitter, Instagram, Close } from '@mui/icons-material'; 
 import { NavLink } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+import './home.css';
 
 const attractions = [
     {
@@ -39,15 +40,33 @@ const attractions = [
 ];
 
 const Home = () => {
+    const [open, setOpen] = useState(false);
+    const [selectedImage, setSelectedImage] = useState(null);
+    const navigate = useNavigate();
+
+    const handleNavigate = () => {
+        navigate('/');
+    };
+
+    const handleOpen = (image) => {
+        setSelectedImage(image);
+        setOpen(true);
+    };
+
+    const handleClose = () => {
+        setOpen(false);
+        setSelectedImage(null);
+    };
+
     return (
         <>
-                     {/* AppBar */}
-<AppBar position="static" style={{ backgroundColor: 'rgba(54, 93, 147, 0.9)' }}>
-    <Toolbar>
-        <Typography variant="h6" style={{ flexGrow: 1 }}>
-            Explore Ethiopia
-        </Typography>
-        <NavLink 
+            {/* AppBar */}
+            <AppBar position="static" style={{ backgroundColor: 'rgba(54, 93, 147, 0.9)' }}>
+                <Toolbar>
+                    <Typography variant="h6" style={{ flexGrow: 1, cursor: 'pointer' }} onClick={handleNavigate}>
+                        Explore Ethiopia
+                    </Typography>
+                    <NavLink 
             to="/" 
             style={({ isActive }) => ({
                 color: isActive ? 'black' : 'white',
@@ -57,10 +76,10 @@ const Home = () => {
                 borderRadius: isActive ? '50px' : '0', 
                 padding: isActive ? '0px 5px' : '0', 
             })}
-        >
-            <Button color="inherit">Home</Button>
-        </NavLink>
-        <NavLink 
+        >        
+                        <Button color="inherit">Home</Button>
+                    </NavLink>
+                    <NavLink 
             to="/about" 
             style={({ isActive }) => ({
                 color: isActive ? 'black' : 'white',
@@ -69,11 +88,11 @@ const Home = () => {
                 borderRadius: isActive ? '50px' : '0', 
                 padding: isActive ? '0px 5px' : '0', 
             })}
-        >
-            <Button color="inherit">About Us</Button>
-        </NavLink>
-    </Toolbar>
-</AppBar>
+        >          
+                      <Button color="inherit">About Us</Button>
+                    </NavLink>
+                </Toolbar>
+            </AppBar>
 
             <Container maxWidth="lg" style={{ textAlign: 'center', padding: '40px 20px', minHeight: 'calc(100vh - 64px)' }}>
                 <Typography variant="h2" gutterBottom>
@@ -89,9 +108,7 @@ const Home = () => {
                 </Link>
                 
                 <Box sx={{ m: 5 }}>
-                    <Typography variant="h4" gutterBottom style={
-                        {marginBottom:'50px'}
-                    }>
+                    <Typography variant="h4" gutterBottom style={{ marginBottom: '50px' }}>
                         Must-See Attractions
                     </Typography>
                     <Grid container spacing={4}>
@@ -103,6 +120,8 @@ const Home = () => {
                                         height="240"
                                         image={attraction.image}
                                         alt={attraction.title}
+                                        onClick={() => handleOpen(attraction.image)} 
+                                        style={{ cursor: 'pointer' }} 
                                     />
                                     <CardContent>
                                         <Typography variant="h6" gutterBottom>
@@ -119,34 +138,69 @@ const Home = () => {
                 </Box>
             </Container>
 
-            <footer className="footer">
-            <Typography variant="body1" color="white">
-                &copy; 2024 Explore Ethiopia. All rights reserved.
-            </Typography>
-            <Typography variant="body2" style={{ margin: '10px 0' }}>
-                <Link to="/" style={{ marginRight: '15px' }}>Home</Link>
-                <Link to="/about" style={{ marginRight: '15px' }}>About Us</Link>
-                <Link to="/contact" style={{ marginRight: '15px' }}>Contact Us</Link>
-                <Link to="/destinations">Destinations</Link>
-            </Typography>
-            <Typography variant="body2" color="white" style={{ margin: '10px 0' }}>
-                Follow us on:
-            </Typography>
-            <Box>
-                <Link to="#" style={{ marginRight: '15px', color: 'white' }}>
-                    <Facebook fontSize="small" />
-                </Link>
-                <Link to="#" style={{ marginRight: '15px', color: 'white' }}>
-                    <Twitter fontSize="small" />
-                </Link>
-                <Link to="#" style={{ color: 'white' }}>
-                    <Instagram fontSize="small" />
-                </Link>
-            </Box>
-            <Typography variant="body2" color="white" style={{ marginTop: '10px' }}>
-                Discover the beauty, culture, and adventure of Ethiopia with us!
-            </Typography>
-        </footer>
+            {/* Modal for Image Zoom */}
+            <Dialog open={open} onClose={handleClose} maxWidth="lg" fullWidth>
+                <DialogContent style={{ position: 'relative' }}>
+                    <IconButton
+                        edge="end"
+                        color="inherit"
+                        onClick={handleClose}
+                        style={{ position: 'absolute', top: 10, right: 10 }}
+                    >
+                        <Close />
+                    </IconButton>
+                    <img 
+                        src={selectedImage} 
+                        alt="Zoomed" 
+                        style={{ width: '100%', height: 'auto',padding:'30px' }} 
+                    />
+                </DialogContent>
+            </Dialog>
+
+            <footer className="footer" style={{  padding: '20px' }}>
+    <Container maxWidth="lg">
+        <Grid container justifyContent="space-between" alignItems="center">
+            <Grid item>
+                <Typography variant="body1" color="white">
+                    &copy; 2024 Explore Ethiopia. All rights reserved.
+                </Typography>
+            </Grid>
+            <Grid item>
+                <Typography variant="body2" style={{ margin: '10px 0' }}>
+                    <Link to="/" style={{ marginRight: '15px', color: 'white' }}>Home</Link>
+                    <Link to="/about" style={{ marginRight: '15px', color: 'white' }}>About Us</Link>
+                    <Link to="/contact" style={{ marginRight: '15px', color: 'white' }}>Contact Us</Link>
+                    <Link to="/destinations" style={{ color: 'white' }}>Destinations</Link>
+                </Typography>
+            </Grid>
+        </Grid>
+
+        <Grid container justifyContent="space-between" alignItems="center" style={{ marginTop: '10px' }}>
+            <Grid item>
+                <Typography variant="body2" color="white" style={{ margin: '10px 0' }}>
+                    Follow us on:
+                </Typography>
+                <Box>
+                    <Link to="#" style={{ marginRight: '15px', color: 'white' }}>
+                        <Facebook fontSize="small" />
+                    </Link>
+                    <Link to="#" style={{ marginRight: '15px', color: 'white' }}>
+                        <Twitter fontSize="small" />
+                    </Link>
+                    <Link to="#" style={{ color: 'white' }}>
+                        <Instagram fontSize="small" />
+                    </Link>
+                </Box>
+            </Grid>
+            <Grid item>
+                <Typography variant="body2" color="white" style={{ marginTop: '10px', textAlign: 'right' }}>
+                    Discover the beauty, culture, and adventure of Ethiopia with us!
+                </Typography>
+            </Grid>
+        </Grid>
+    </Container>
+            </footer>
+
         </>
     );
 };
