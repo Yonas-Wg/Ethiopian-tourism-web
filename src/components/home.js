@@ -5,6 +5,8 @@ import { Facebook, Twitter, Instagram, Close } from '@mui/icons-material';
 import { NavLink } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import './home.css';
+import { Typewriter } from 'react-simple-typewriter';
+
 
 const attractions = [
     {
@@ -107,16 +109,51 @@ const Home = () => {
             </AppBar>
 
             <Container maxWidth="lg" style={{ textAlign: 'center', padding: '40px 20px', minHeight: 'calc(100vh - 64px)' }}>
-                <Typography variant="h2" gutterBottom>
-                    Explore Ethiopia
-                </Typography>
-                <Typography variant="h5" paragraph>
-                    Discover breathtaking landscapes, rich culture, and unforgettable experiences!
-                </Typography>
+            <Box sx={{ textAlign: 'center', padding: '20px' }}>
+      <Typography variant="h2" gutterBottom>
+        <span>
+          <Typewriter
+            words={['Explore Ethiopia']}
+            loop={1} 
+            cursor
+            cursorStyle=""
+            typeSpeed={70} 
+            deleteSpeed={50} 
+            delaySpeed={1000} 
+          />
+        </span>
+      </Typography>
+      <Typography variant="h5" paragraph>
+        <span>
+          <Typewriter
+            words={[
+              'Discover breathtaking landscapes, rich culture, and unforgettable experiences!',
+            ]}
+            loop={1}
+            cursor
+            cursorStyle=""
+            typeSpeed={70}
+            deleteSpeed={50}
+            delaySpeed={1000}
+          />
+        </span>
+      </Typography>
+    </Box>
                 <Link to="/about">
-                    <Button variant="contained"  size="large" style={{ marginBottom: '20px', backgroundColor: 'rgba(54, 93, 147, 0.9)',  }}>
-                        Learn More
-                    </Button>
+                <Button
+  variant="contained"
+  size="large"
+  style={{
+    margin: '20px',
+    backgroundColor: 'rgba(54, 93, 147, 0.9)',
+    transition: 'transform 0.4s',
+  }}
+  onMouseEnter={(e) => (e.currentTarget.style.transform = 'translateY(-15px)')} 
+  onMouseLeave={(e) => (e.currentTarget.style.transform = 'translateY(0)')} 
+>
+  Learn More
+</Button>
+
                 </Link>
                 
                 <Box sx={{ m: 5 }}>

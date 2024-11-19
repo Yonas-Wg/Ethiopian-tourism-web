@@ -83,18 +83,23 @@ const About = () => {
 </AppBar>
 <Box textAlign="left" m={5}>
             <Link to="/">
-            <Button 
-    variant="contained" 
-    sx={{ 
-        backgroundColor: 'rgba(54, 93, 147, 0.9)', 
-        '&:hover': { backgroundColor: 'rgba(54, 93, 147, 0.7)' },
-        color: 'white', 
-    }} 
-    size="medium"
+            <Button
+  variant="contained"
+  size="medium"
+  sx={{
+    backgroundColor: 'rgba(54, 93, 147, 0.9)',
+    color: 'white',
+    transition: 'transform 0.3s', 
+    '&:hover': {
+      backgroundColor: 'rgba(54, 93, 147, 0.7)',
+      transform: 'translateY(-15px)', 
+    },
+  }}
 >
-    <ArrowBackIcon sx={{ pr: '5px', borderRadius: '100px' }} />
-    Back to Home
+  <ArrowBackIcon sx={{ pr: '5px', borderRadius: '100px' }} />
+  Back to Home
 </Button>
+
 
             </Link>
         </Box>

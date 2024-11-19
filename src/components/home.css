@@ -7,7 +7,7 @@ body {
 }
 
 .card {
-    transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.3s ease;
+    transition: transform 0.5s ease, box-shadow 0.5s ease, opacity 0.5s ease;
     border-radius: 15px; 
     overflow: hidden; 
     width: 100%; 
@@ -16,7 +16,7 @@ body {
 }
 
 .card:hover {
-    transform: scale(1.1); 
+    transform: scale(1.07);
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3); 
     opacity: 0.9; 
     cursor: pointer; 
